@@ -33,13 +33,22 @@ toggle in the bottom-right corner flips it.
 - **paper** (the house Tufte look, light and dark by system setting) for
   `reader`, `do`, `write`, `taste`, `dagbok`, `wiki`, `agora`, `inbox`,
   `stats`, `health`, `chat`, `bil` and `15` (`<name>.phareim.no`).
-- **neon** (Neon Dreams, dark only) for everything else: phareim.no, the
-  games, radio, jam, and no redirect at all.
+- **neon** (phareim.no's pixel look, dark only) for everything else:
+  phareim.no, the games, radio, jam, and no redirect at all.
 
 The list lives in `lib/theme.ts`. Each theme's CSS is scoped to its class on
-`<html>` (`theme-neon`, `theme-paper`): `assets/css/neon.css` carries the
-Neon Dreams tokens (from `~/github/neon-dreams-design`, fonts self-hosted via
-`@fontsource`), `assets/css/tufte.css` is do-web's Tufte stylesheet, and
+`<html>` (`theme-neon`, `theme-paper`).
+
+The neon look is Neon Shrine's, the same as the town on phareim.no: the form
+sits in its dialog box (`.px-box`, `.px-btn`) with the 5×7 pixel font, over
+the town at dusk drawn on the pixel stage (`components/neon/DuskScene.vue`).
+`pixel/` holds the stage, scenery, sprites, font and panel CSS, and
+`public/fonts/neon-pixel.woff` the webfont, all copied from phareim.no by
+`node scripts/sync-pixel.mjs`. phareim.no is where the look is developed;
+edit it there and sync, never the copies here. Typed text and prose use
+Space Mono, since the pixel font has capitals only.
+
+Paper: `assets/css/tufte.css` is do-web's Tufte stylesheet and
 `components/tufte/` the four Tufte primitives rewritten as plain scoped CSS.
 
 ## API

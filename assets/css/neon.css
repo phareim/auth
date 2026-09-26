@@ -1,180 +1,27 @@
-/* The neon theme: Neon Dreams (~/github/neon-dreams-design, mirrored 2026-09-06).
-   Tokens copied from its tokens/*.css, scoped to html.theme-neon so they never
-   reach the paper theme. Fonts are self-hosted from @fontsource (latin subsets,
-   see nuxt.config.ts) instead of the design system's Google Fonts import.
-   Dark only: the system has no light variant. */
+/* The neon theme is phareim.no's pixel look (pixel/, vendored by
+   scripts/sync-pixel.mjs). This file only sets the page ground and the two
+   faces, scoped to html.theme-neon so nothing reaches the paper theme:
+   Neon Pixel, the 5×7 canvas font as a webfont (crisp at 8 px steps), and
+   Space Mono for typed text and prose. Dark only. */
+
+@font-face {
+  font-family: "Neon Pixel";
+  src: url("/fonts/neon-pixel.woff") format("woff");
+  font-display: block;
+}
 
 html.theme-neon {
   color-scheme: dark;
-
-  /* Neons: three colours, three jobs. Never a fourth. */
-  --neon-primary: #2ff3ff;   /* cyan · the player & the interface */
-  --neon-danger: #ff2fa0;    /* pink · the threat & the call to action */
-  --neon-reward: #ffd23f;    /* gold · the reward, spent rarely */
-
-  /* Ground */
-  --neon-ground: #0b0616;
-  --neon-ground-deep: #060310;
-
-  /* Ink */
-  --neon-ink: #f2e9ff;
-  --neon-ink-muted: #b9a8d9;
-  --neon-ink-subtle: #7a6a9a;
-
-  /* Semantic aliases */
-  --bg-page: var(--neon-ground);
-  --surface-card: rgba(11, 6, 22, .74);
-  --surface-field: rgba(6, 3, 16, .85); /* denser than the panel ground: the sun sits behind the fields */
-  --text-body: var(--neon-ink);
-  --text-muted: var(--neon-ink-muted);
-  --text-subtle: var(--neon-ink-subtle);
-  --border-card: rgba(255, 47, 160, .35);
-  --border-rule: rgba(255, 47, 160, .25);
-  --border-field: rgba(47, 243, 255, .35);
-  --focus-ring: var(--neon-primary);
-
-  /* Type */
-  --font-system: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-pixel: "Neon Pixel", "Space Mono", ui-monospace, monospace;
   --font-mono: "Space Mono", ui-monospace, "Courier New", monospace;
-  --tracking-hud: .15em;
-  --tracking-hint: .12em;
-  --tracking-title: .1em;
-
-  /* Glow: everything that glows is drawn twice. */
-  --glow-primary: 0 0 8px rgba(47, 243, 255, .65), 0 0 24px rgba(255, 47, 160, .35);
-  --glow-danger-hint: 0 0 10px rgba(255, 47, 160, .6);
-  --glow-danger-title: 0 0 12px rgba(255, 47, 160, .8), 0 0 40px rgba(255, 47, 160, .4);
-  --shadow-card: 0 0 24px rgba(47, 243, 255, .15);
-
-  /* Radii: near-square; 12 for the glass card only. Never pills. */
-  --radius-sm: 4px;
-  --radius-card: 12px;
-
-  --dur-hover: 120ms;
-  --dur-press: 80ms;
-
-  background: var(--neon-ground-deep);
+  background: #0b0616;
 }
 
 html.theme-neon body {
-  background: var(--bg-page);
-  color: var(--text-body);
-  font-family: var(--font-system);
-  font-weight: 300;
+  background: #0b0616;
+  color: #f4ecff;
+  font-family: var(--font-mono);
   -webkit-font-smoothing: antialiased;
 }
 
-.theme-neon :focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 2px;
-}
-
-/* The machine's voice: mono, uppercase, tracked. */
-.theme-neon .nd-lab {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: var(--tracking-hud);
-  text-transform: uppercase;
-  color: var(--neon-primary);
-}
-.theme-neon .nd-hud {
-  font-family: var(--font-mono);
-  letter-spacing: var(--tracking-hud);
-  text-transform: uppercase;
-  color: var(--neon-primary);
-  text-shadow: var(--glow-primary);
-}
-.theme-neon .nd-over-title {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  letter-spacing: var(--tracking-title);
-  text-transform: uppercase;
-  color: var(--neon-danger);
-  text-shadow: var(--glow-danger-title);
-  line-height: 1;
-}
-.theme-neon .nd-hint {
-  font-family: var(--font-mono);
-  letter-spacing: var(--tracking-hint);
-  text-transform: uppercase;
-  color: var(--neon-danger);
-  text-shadow: var(--glow-danger-hint);
-}
-
-/* Glass card: ground at .74, 1px pink border, cyan glow. Floats over the horizon. */
-.theme-neon .nd-card {
-  background: var(--surface-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-}
-
-/* Button: mono uppercase, 1px neon border, glow twice. Tone via --tone / --tone-rgb. */
-.theme-neon .nd-button {
-  --tone: var(--neon-danger);
-  --tone-rgb: 255, 47, 160;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 12px 20px;
-  font-family: var(--font-mono);
-  font-size: 14.4px;
-  letter-spacing: var(--tracking-hint);
-  text-transform: uppercase;
-  line-height: 1;
-  white-space: nowrap;
-  color: var(--tone);
-  background: transparent;
-  border: 1px solid var(--tone);
-  border-radius: var(--radius-sm);
-  text-shadow: 0 0 10px rgba(var(--tone-rgb), .6);
-  box-shadow: 0 0 8px rgba(var(--tone-rgb), .35);
-  cursor: pointer;
-  user-select: none;
-  transition: background var(--dur-hover) ease-in-out, box-shadow var(--dur-hover) ease-in-out, transform var(--dur-press);
-}
-.theme-neon .nd-button:hover:not(:disabled) {
-  background: rgba(var(--tone-rgb), .12);
-  box-shadow: 0 0 16px rgba(var(--tone-rgb), .55), inset 0 0 12px rgba(var(--tone-rgb), .12);
-}
-.theme-neon .nd-button:active:not(:disabled) { transform: translateY(1px); }
-.theme-neon .nd-button:disabled { opacity: .38; box-shadow: none; cursor: not-allowed; }
-.theme-neon .nd-button--primary { --tone: var(--neon-primary); --tone-rgb: 47, 243, 255; }
-.theme-neon .nd-button--ghost { border-color: transparent; box-shadow: none; }
-.theme-neon .nd-button--sm { min-height: 32px; padding: 8px 12px; font-size: 11.2px; }
-
-/* Field: mono on the panel ground, cyan hairline, glow on focus. Not uppercased:
-   emails and passwords keep their case. */
-.theme-neon .nd-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.theme-neon .nd-input {
-  width: 100%;
-  min-height: 44px;
-  padding: 11px 14px;
-  font-family: var(--font-mono);
-  font-size: 16px; /* 16px or iOS zooms on focus */
-  letter-spacing: .04em;
-  color: var(--neon-ink);
-  caret-color: var(--neon-primary);
-  background: var(--surface-field);
-  border: 1px solid var(--border-field);
-  border-radius: var(--radius-sm);
-  outline: none;
-  transition: border-color var(--dur-hover), box-shadow var(--dur-hover);
-}
-.theme-neon .nd-input:focus {
-  border-color: var(--neon-primary);
-  box-shadow: 0 0 12px rgba(47, 243, 255, .45);
-}
-.theme-neon .nd-input:-webkit-autofill {
-  -webkit-text-fill-color: var(--neon-ink);
-  -webkit-box-shadow: 0 0 0 40px var(--neon-ground-deep) inset;
-}
-.theme-neon .nd-input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 40px var(--neon-ground-deep) inset, 0 0 12px rgba(47, 243, 255, .45);
-}
+html.theme-neon ::selection { background: #ff2fa0; color: #0b0616; }

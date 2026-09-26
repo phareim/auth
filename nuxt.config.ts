@@ -7,11 +7,10 @@ export default defineNuxtConfig({
   // Both themes ship in one stylesheet, each scoped to its class on <html>
   // (html.theme-neon / html.theme-paper), so the toggle needs no reload.
   css: [
-    '@fontsource/space-grotesk/latin-300.css',
-    '@fontsource/space-grotesk/latin-400.css',
     '@fontsource/space-mono/latin-400.css',
     '~/assets/css/base.css',
     '~/assets/css/tufte.css',
+    '~/pixel/pixel.css',
     '~/assets/css/neon.css',
   ],
 
@@ -42,7 +41,7 @@ export default defineNuxtConfig({
 
   components: {
     dirs: [
-      // Tufte primitives as <MonoLabel>, <CardFrame>…, the neon parts as <NeonHorizon>.
+      // Tufte primitives as <MonoLabel>, <CardFrame>…, the neon parts as <DuskScene>.
       { path: '~/components/tufte', pathPrefix: false },
       { path: '~/components/neon', pathPrefix: false },
       { path: '~/components', pathPrefix: false },

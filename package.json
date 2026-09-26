@@ -17,7 +17,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@fontsource/space-grotesk": "^5.2.0",
     "@fontsource/space-mono": "^5.2.0",
     "nuxt": "^3.21.0"
   }

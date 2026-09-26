@@ -16,7 +16,8 @@ binding. The README has the params, API, CORS rule and theme map.
 ```
 app.vue                 one page; sets html class theme-neon / theme-paper
 composables/useAuthFlow state and actions shared by both themes
-components/NeonView.vue neon theme (Neon Dreams); components/neon/NeonHorizon.vue the backdrop
+components/NeonView.vue neon theme (phareim.no's pixel look); components/neon/DuskScene.vue the backdrop
+pixel/                  the pixel look, vendored from phareim.no by scripts/sync-pixel.mjs: never edit here
 components/PaperView.vue paper theme (Tufte); components/tufte/ the four primitives
 lib/                    safeRedirect, themeFor, corsOrigin (framework-free, tested)
 server/api/             sign-in, sign-up, sign-out, session: relays to Reader
