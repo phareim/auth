@@ -1,0 +1,21 @@
+name = "auth-web"
+main = ".output/server/index.mjs"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat_v2"]
+
+# Workers Static Assets: Nitro's cloudflare-module preset serves /_nuxt and
+# public/ through the ASSETS binding (a [site] KV bucket is not read by it).
+[assets]
+directory = ".output/public"
+binding = "ASSETS"
+
+# Reader owns the accounts and the session cookie. auth-web holds no data and
+# no D1 binding: every /api/* call is relayed to Reader Worker to Worker.
+[[services]]
+binding = "READER"
+service = "reader-service"
+
+[[routes]]
+pattern = "auth.phareim.no"
+zone_name = "phareim.no"
+custom_domain = true

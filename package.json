@@ -1,0 +1,24 @@
+{
+  "name": "auth-web",
+  "version": "1.0.0",
+  "description": "auth.phareim.no: one sign-in page for the *.phareim.no apps, in front of Reader's accounts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --port 3050",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "test": "node --no-warnings --test 'tests/*.test.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phareim/auth.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/space-grotesk": "^5.2.0",
+    "@fontsource/space-mono": "^5.2.0",
+    "nuxt": "^3.21.0"
+  }
+}
