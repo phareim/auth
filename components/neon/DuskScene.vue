@@ -64,7 +64,7 @@ function layout(W: number, H: number): void {
   lamps = []
   const colors = ['#ff2fa0', '#2ff3ff']
   for (let x = 14, i = 0; x < W - 4; x += portrait ? 46 : 64, i++) {
-    lamps.push({ ...paintLamp(g, x, roadY, 12, colors[i % 2]), c: colors[i % 2] })
+    lamps.push({ ...paintLamp(g, x, roadY, 12, colors[i % 2]!), c: colors[i % 2]! })
   }
 }
 
@@ -98,7 +98,7 @@ onMounted(() => {
   reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
   stage = createPixelStage(c)
   fit(c.clientWidth, c.clientHeight)
-  observer = new ResizeObserver(([entry]) => fit(entry.contentRect.width, entry.contentRect.height))
+  observer = new ResizeObserver(([entry]) => fit(entry!.contentRect.width, entry!.contentRect.height))
   observer.observe(c)
   if (!reduced) raf = requestAnimationFrame(draw)
 })

@@ -115,6 +115,7 @@ export function useAuthFlow() {
       user.value = null
       stage.value = 'form'
       mode.value = 'signin'
+      syncUrl('mode', 'signin', 'signin')
     } catch (err: any) {
       error.value = err?.message || 'Could not sign out. Try again.'
     } finally {
