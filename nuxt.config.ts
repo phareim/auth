@@ -1,4 +1,4 @@
-// auth.phareim.no: one sign-in page for the *.phareim.no apps. Nuxt 3 on a
+// auth.phareim.no: one sign-in page for the *.phareim.no apps. Nuxt 4 on a
 // Cloudflare Worker (auth-web); /api/* relays to Reader over a service binding.
 export default defineNuxtConfig({
   compatibilityDate: '2024-09-23',

@@ -1,7 +1,7 @@
 # AGENTS.md
 
 auth.phareim.no: one sign-in page for the `*.phareim.no` apps, Worker
-`auth-web`. Nuxt 3 on Cloudflare (`cloudflare-module` preset). It holds no
+`auth-web`. Nuxt 4 on Cloudflare (`cloudflare-module` preset). It holds no
 data: `/api/*` relays to Reader (`reader-service`) over the `READER` service
 binding. The README has the params, API, CORS rule and theme map.
 
